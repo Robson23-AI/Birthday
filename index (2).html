@@ -240,10 +240,12 @@
     setInterval(draw, 33);
 
     // Intro logic
-    document.getElementById('enterButton').addEventListener('click', () => {
-      document.getElementById('intro').style.display = 'none';
-      document.getElementById('bgmusic').play();
-    });
+  document.getElementById('enterButton').addEventListener('click', () => {
+  document.getElementById('intro').style.display = 'none';
+  const music = document.getElementById('bgmusic');
+  music.volume = 0.3;
+  music.play();
+
 
     loadWishes();
   </script>
