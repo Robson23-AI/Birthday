@@ -169,8 +169,7 @@
       const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
       quoteBox.innerText = '💬 ' + randomQuote;
     }
-    setInterval(showRandomQuote, 10000);
-    showRandomQuote();
+    // przeniesione do enterButton
 
     function addWish() {
       const name = document.getElementById('name').value.trim();
@@ -241,6 +240,8 @@
 
     // Intro logic
     document.getElementById('enterButton').addEventListener('click', () => {
+      showRandomQuote();
+      setInterval(showRandomQuote, 10000);
       document.getElementById('intro').style.display = 'none';
       document.getElementById('bgmusic').play();
     });
@@ -249,4 +250,5 @@
   </script>
 </body>
 </html>
+
 
