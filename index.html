@@ -96,6 +96,17 @@
       width: 100%;
       height: 100%;
     }
+    #quoteBox {
+      margin-top: 20px;
+      font-style: italic;
+      font-size: 1.2em;
+      color: #66ff66;
+    }
+    #counter {
+      font-size: 1.1em;
+      margin-top: 10px;
+      color: #99ff99;
+    }
   </style>
 </head>
 <body>
@@ -114,6 +125,9 @@
   <div class="error-banner">💥 Error 404: Manager not found – party in progress 🎂🎉</div>
   <h1>🎂 Happy Birthday Kamila! 🎈</h1>
   <p>From your entire crazy (but awesome) team </p>
+
+  <div id="quoteBox">💬 „Nie ma eskalacji, której nie da się świętować.”</div>
+  <div id="counter">📈 Liczba eskalacji dzisiaj: <span id="escalationCount">0</span></div>
 
   <div class="wishes" id="wishList"></div>
 
@@ -139,6 +153,25 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
 
+    const quotes = [
+      "„Nie ma eskalacji, której nie da się świętować.”",
+      "„Kamila zawsze zna odpowiedź – nawet przed pytaniem.”",
+      "„Za każdą eskalacją kryje się uśmiech Kamili.”",
+      "„Najpierw eskalacja, potem konfetti.”",
+      "„Kamila: eskalacja rozwiązań, nie problemów!”",
+      "„SLA to dla Kamili nie cel – to styl życia.”",
+      "„Każdy ticket z Manilii kończy się uśmiechem, jeśli jest Kamila.”",
+      "„Pozytywny NPS? To po prostu efekt Kamili.”"
+    ];
+
+    function showRandomQuote() {
+      const quoteBox = document.getElementById('quoteBox');
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      quoteBox.innerText = '💬 ' + randomQuote;
+    }
+    setInterval(showRandomQuote, 10000);
+    showRandomQuote();
+
     function addWish() {
       const name = document.getElementById('name').value.trim();
       const wish = document.getElementById('wish').value.trim();
@@ -156,15 +189,20 @@
 
     function loadWishes() {
       const wishList = document.getElementById('wishList');
+      const counter = document.getElementById('escalationCount');
+      let count = 0;
       db.ref('wishes').on('value', (snapshot) => {
         wishList.innerHTML = '';
+        count = 0;
         snapshot.forEach((child) => {
           const data = child.val();
           const msgDiv = document.createElement('div');
           msgDiv.className = 'message';
-          msgDiv.innerText = `🎈 ${data.wish} – ${data.name}`;
+          msgDiv.innerText = `🎈 ${data.wish} – ${data.name} 💬 We win together 💪`;
           wishList.appendChild(msgDiv);
+          count++;
         });
+        counter.innerText = count;
       });
     }
 
@@ -201,13 +239,14 @@
     }
     setInterval(draw, 33);
 
-    loadWishes();
-
     // Intro logic
     document.getElementById('enterButton').addEventListener('click', () => {
       document.getElementById('intro').style.display = 'none';
       document.getElementById('bgmusic').play();
     });
+
+    loadWishes();
   </script>
 </body>
 </html>
+
