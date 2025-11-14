@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday Kamila! 🎉</title>
+  <title>Happy Birthday! 🎉</title>
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -111,7 +111,7 @@
 </head>
 <body>
   <div id="intro">
-    <h1>🎂 Witaj na urodzinach Kamili!</h1>
+    <h1>🎂 Witaj na urodzinach!</h1>
     <p>🎉 Kliknij poniżej, aby złożyć życzenia 🎁</p>
     <button id="enterButton">ZŁÓŻ ŻYCZENIA</button>
   </div>
@@ -123,7 +123,7 @@
 
   <canvas id="matrix"></canvas>
   <div class="error-banner">💥 Error 404: Manager not found – party in progress 🎂🎉</div>
-  <h1>🎂 Happy Birthday Kamila! 🎈</h1>
+  <h1>🎂 Happy Birthday! 🎈</h1>
   <p>From your entire crazy (but awesome) team </p>
 
   <div id="quoteBox">💬 „Nie ma eskalacji, której nie da się świętować.”</div>
@@ -134,17 +134,17 @@
   <div class="wishes wish-form">
     <h2>Dodaj swoje życzenia! ✍️</h2>
     <input type="text" id="name" placeholder="Twoje imię">
-    <textarea id="wish" placeholder="Twoje życzenia dla Kamili..."></textarea>
+    <textarea id="wish" placeholder="Twoje życzenia dla Managera..."></textarea>
     <button onclick="addWish()">Dodaj 🎁</button>
   </div>
 
   <script>
     const firebaseConfig = {
       apiKey: "AIzaSyBoRTl50e5nqV8uyx_bLIM0-5B8q8_Ol9Y",
-      authDomain: "urodziny-kamila.firebaseapp.com",
-      databaseURL: "https://urodziny-kamila-default-rtdb.europe-west1.firebasedatabase.app",
-      projectId: "urodziny-kamila",
-      storageBucket: "urodziny-kamila.firebasestorage.app",
+      authDomain: "urodziny-Manager.firebaseapp.com",
+      databaseURL: "https://urodziny-Manager-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "urodziny-Manager",
+      storageBucket: "urodziny-Manager.firebasestorage.app",
       messagingSenderId: "607682836368",
       appId: "1:607682836368:web:5e26a45ff6844b4d902515",
       measurementId: "G-FEMXP7WDNT"
@@ -155,13 +155,13 @@
 
     const quotes = [
       "„Nie ma eskalacji, której nie da się świętować.”",
-      "„Kamila zawsze zna odpowiedź – nawet przed pytaniem.”",
-      "„Za każdą eskalacją kryje się uśmiech Kamili.”",
+      "„ zawsze zna odpowiedź – nawet przed pytaniem.”",
+      "„Za każdą eskalacją kryje się uśmiech Managera.”",
       "„Najpierw eskalacja, potem konfetti.”",
-      "„Kamila: eskalacja rozwiązań, nie problemów!”",
-      "„SLA to dla Kamili nie cel – to styl życia.”",
-      "„Każdy ticket z Manilii kończy się uśmiechem, jeśli jest Kamila.”",
-      "„Pozytywny NPS? To po prostu efekt Kamili.”"
+      "„Manager: eskalacja rozwiązań, nie problemów!”",
+      "„SLA to dla Managera nie cel – to styl życia.”",
+      "„Każdy ticket z Manilii kończy się uśmiechem, jeśli jest Manager.”",
+      "„Pozytywny NPS? To po prostu efekt Managera.”"
     ];
 
     function showRandomQuote() {
@@ -250,4 +250,5 @@
   </script>
 </body>
 </html>
+
 
