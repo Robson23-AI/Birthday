@@ -4,7 +4,7 @@ A simple web application created to celebrate the birthday of a team member.
 The app allows users to submit birthday wishes, stores them in Firebase Realtime Database, and displays them dynamically on the page.  
 It also includes animations, audio playback, a Matrix-style background effect, and a confetti effect.
 
-![Screenshot](Birthday/main.png)
+![Screenshot](main.png)
 
 
 ## Features
